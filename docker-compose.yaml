@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bnck-codeflix-java-image:latest
+    container_name: bnck-codeflix-java
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    environment:
+      - JAVA_OPTS=-Xms512m -Xmx1024m
+

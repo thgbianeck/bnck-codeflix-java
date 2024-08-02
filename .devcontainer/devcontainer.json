@@ -1,0 +1,31 @@
+{
+  "name": "bnck-codeflix-java Dev Container",
+  "dockerComposeFile": "../docker-compose.yaml",  // Ajustado para apontar para o arquivo na raiz
+  "service": "app",
+  "workspaceFolder": "/app",
+  "extensions": [
+    "redhat.java",
+    "vscjava.vscode-java-pack",
+    "tabnine.tabnine-vscode",
+    "ms-azuretools.vscode-docker",
+    "vscjava.vscode-gradle",
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+    "usernamehw.errorlens",
+    "jebbs.plantuml",
+    "qhoekman.language-plantuml",
+    "vmware.vscode-boot-dev-pack",
+    "loiane.java-spring-extension-pack"
+  ],
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/zsh",
+    "java.configuration.runtimes": [
+      {
+        "name": "JavaSE-17",
+        "path": "/usr/local/openjdk-17",
+        "default": true
+      }
+    ]
+  },
+  "postCreateCommand": "zsh -c 'git --version && echo $PATH'"
+}
