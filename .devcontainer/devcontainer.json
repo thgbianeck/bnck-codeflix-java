@@ -15,7 +15,9 @@
     "jebbs.plantuml",
     "qhoekman.language-plantuml",
     "vmware.vscode-boot-dev-pack",
-    "loiane.java-spring-extension-pack"
+    "loiane.java-spring-extension-pack",
+    "oracle.oracle-java",
+    "symflower.symflower"
   ],
   "settings": {
     "terminal.integrated.shell.linux": "/bin/zsh",
