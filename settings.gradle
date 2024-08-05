@@ -1,0 +1,5 @@
+rootProject.name = 'bnck-admin-catalogo'
+include 'domain'
+include 'application'
+include 'infrastructure'
+
