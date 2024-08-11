@@ -1,33 +1,44 @@
 {
-  "name": "bnck-codeflix-java Dev Container",
-  "dockerComposeFile": "../docker-compose.yaml",  // Ajustado para apontar para o arquivo na raiz
+  "name": "Micro Videos Admin - JAVA",
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],  // Ajustado para apontar para o arquivo na raiz
   "service": "app",
   "workspaceFolder": "/app",
-  "extensions": [
-    "redhat.java",
-    "vscjava.vscode-java-pack",
-    "tabnine.tabnine-vscode",
-    "ms-azuretools.vscode-docker",
-    "vscjava.vscode-gradle",
-    "eamodio.gitlens",
-    "mhutchie.git-graph",
-    "usernamehw.errorlens",
-    "jebbs.plantuml",
-    "qhoekman.language-plantuml",
-    "vmware.vscode-boot-dev-pack",
-    "loiane.java-spring-extension-pack",
-    "oracle.oracle-java",
-    "symflower.symflower"
-  ],
-  "settings": {
-    "terminal.integrated.shell.linux": "/bin/zsh",
-    "java.configuration.runtimes": [
-      {
-        "name": "JavaSE-17",
-        "path": "/usr/local/openjdk-17",
-        "default": true
-      }
-    ]
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
+      "plugins": "git git-flow F-Sy-H zsh-autosuggestions zsh-completions",
+      "omzPlugins": "https://github.com/z-shell/F-Sy-H https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-completions"
+    },
+    "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
   },
-  "postCreateCommand": "zsh -c 'git --version && echo $PATH'"
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.java",
+        "vscjava.vscode-java-pack",
+        "tabnine.tabnine-vscode",
+        "ms-azuretools.vscode-docker",
+        "vscjava.vscode-gradle",
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "usernamehw.errorlens",
+        "jebbs.plantuml",
+        "qhoekman.language-plantuml",
+        "vmware.vscode-boot-dev-pack",
+        "loiane.java-spring-extension-pack",
+        "oracle.oracle-java",
+        "symflower.symflower"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/zsh",
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-17",
+            "path": "/usr/local/openjdk-17",
+            "default": true
+          }
+        ]
+      }
+    }
+  }
 }

@@ -16,6 +16,12 @@ ENV PATH=${GRADLE_HOME}/bin:${PATH}
 RUN apt-get install -y zsh git curl && \
     chsh -s $(which zsh)
 
+# Crie um novo usuário e grupo
+RUN groupadd -r bianeck && useradd -r -g bianeck -m bianeck
+
+# Altere para o novo usuário
+USER bianeck 
+
 # Instale o Oh My Zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && \
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \
@@ -26,6 +32,9 @@ RUN echo "plugins=(git zsh-syntax-highlighting zsh-autosuggestions)" >> ~/.zshrc
 
 # Defina o diretório de trabalho no contêiner
 WORKDIR /app
+
+# Copie os arquivos do projeto para o contêiner
+COPY --chown=bianeck:bianeck . /app
 
 # Copie os arquivos do projeto para o contêiner
 COPY . /app
