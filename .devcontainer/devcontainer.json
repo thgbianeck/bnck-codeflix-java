@@ -4,10 +4,17 @@
   "service": "app",
   "workspaceFolder": "/app",
   "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": true,
+      "configureZshAsDefaultShell": true,
+      "installOhMyZsh": true,
+      "installOhMyZshConfig": true,
+      "upgradePackages": true
+    },
     "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
-      "plugins": "git git-flow F-Sy-H zsh-autosuggestions zsh-completions",
-      "omzPlugins": "https://github.com/z-shell/F-Sy-H https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-completions"
+      "plugins": "ssh-agent npm",
+      "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
+      "username": "root"
     },
     "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
   },
@@ -27,18 +34,30 @@
         "vmware.vscode-boot-dev-pack",
         "loiane.java-spring-extension-pack",
         "oracle.oracle-java",
-        "symflower.symflower"
+        "symflower.symflower",
+        "guilhermestella.guilhermestella-java-ext",
+        "george-alisson.html-preview-vscode"
       ],
       "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
         "terminal.integrated.shell.linux": "/bin/zsh",
+        "terminal.integrated.profiles.linux": {
+          "zsh": {
+            "path": "/bin/zsh"
+          }
+        },
+        "java.jdt.ls.java.home": "/opt/java/openjdk",
+        "java.maven.downloadSources": true,
+        "maven.terminal.useJavaHome": true,
         "java.configuration.runtimes": [
           {
-            "name": "JavaSE-17",
-            "path": "/usr/local/openjdk-17",
+            "name": "JavaSE-21",
+            "path": "/opt/java/openjdk",
             "default": true
           }
         ]
       }
     }
-  }
+  },
+  "remoteUser": "root"
 }
