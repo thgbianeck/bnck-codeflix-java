@@ -5,7 +5,6 @@ import java.util.List;
 import br.com.bnck.admin.catalogo.domain.validation.Error;
 
 
-
 public interface ValidationHandler {
 
     ValidationHandler append(Error anError);
