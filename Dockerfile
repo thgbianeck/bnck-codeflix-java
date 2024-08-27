@@ -1,21 +1,14 @@
-FROM gradle:jdk21-jammy
+FROM gradle:7.6.1-jdk17-alpine
 
-RUN apt-get update && \
-    apt-get install -y wget unzip zsh git curl
+WORKDIR /usr/app/
 
-# Instalar o Oh My Zsh e plugins
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended && \
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+COPY . .
 
-# Adicionar os plugins ao .zshrc
-RUN echo "plugins=(git zsh-syntax-highlighting zsh-autosuggestions)" >> ~/.zshrc
+# Atualiza os repositórios do Alpine e instala Node.js e npm
+RUN apk add --no-cache nodejs npm
 
-# Definir o diretório de trabalho
-WORKDIR /app
+# Cria os diretórios necessários e configura as permissões
+RUN mkdir -p /root/.gradle /usr/app/.gradle
 
-# Copiar os arquivos como root
-COPY . /app
-
-# Manter o contêiner em execução
+# Defina o comando padrão
 CMD ["tail", "-f", "/dev/null"]

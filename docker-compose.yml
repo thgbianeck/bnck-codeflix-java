@@ -6,7 +6,18 @@ services:
     image: bnck-codeflix-java-image:latest
     container_name: bnck-codeflix-java
     volumes:
-      - .:/app
+      - .:/usr/app
+      - gradle-cache:/root/.gradle
     environment:
       - JAVA_OPTS=-Xms512m -Xmx1024m
+    ports:
+      - "${PORT}:8080" # Usa a variável PORT do arquivo .env
+    networks:
+      - app-network
 
+volumes:
+  gradle-cache:
+
+networks:
+  app-network:
+    driver: bridge
