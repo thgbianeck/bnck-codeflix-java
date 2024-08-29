@@ -37,7 +37,10 @@
         "vscjava.vscode-java-pack",
         "vmware.vscode-boot-dev-pack",
         "GitHub.vscode-pull-request-github",
-        "ms-edgedevtools.vscode-edge-devtools"
+        "ms-edgedevtools.vscode-edge-devtools",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-mysql",
+        "mtxr.sqltools-driver-pg"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -57,7 +60,7 @@
         "java.import.gradle.enabled": true,
         "gradle.autoDetect": "on",
         "java.import.gradle.home": "/opt/gradle",
-        "java.import.gradle.version": "7.6.1",
+        "java.import.gradle.version": "8.8",
         "java.import.gradle.java.home": "/opt/java/openjdk",
         "spring-boot.ls.java.home": "/opt/java/openjdk",
         "plantuml.java": "/opt/java/openjdk/bin/java",
