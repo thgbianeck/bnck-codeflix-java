@@ -6,7 +6,30 @@ services:
     image: bnck-codeflix-java-image:latest
     container_name: bnck-codeflix-java
     volumes:
-      - .:/app
+      - .:/usr/app
+      - gradle-cache:/root/.gradle
     environment:
       - JAVA_OPTS=-Xms512m -Xmx1024m
+    ports:
+      - "${PORT}:8080" # Usa a variável PORT do arquivo .env
+    networks:
+      - adm_videos_network
 
+  mysql:
+    container_name: adm_videos_mysql
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=adm_videos
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - 3306:3306
+    networks:
+      - adm_videos_network
+
+networks:
+  adm_videos_network:
+
+volumes:
+  gradle-cache:

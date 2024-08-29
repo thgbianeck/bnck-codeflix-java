@@ -1,8 +1,8 @@
 {
   "name": "Micro Videos Admin - JAVA",
-  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"],  // Ajustado para apontar para o arquivo na raiz
+  "dockerComposeFile": ["../docker-compose.yml", "docker-compose.yml"], // Ajustado para apontar para o arquivo na raiz
   "service": "app",
-  "workspaceFolder": "/app",
+  "workspaceFolder": "/usr/app",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "installZsh": true,
@@ -21,24 +21,32 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "redhat.java",
-        "vscjava.vscode-java-pack",
         "tabnine.tabnine-vscode",
         "ms-azuretools.vscode-docker",
-        "vscjava.vscode-gradle",
         "eamodio.gitlens",
         "mhutchie.git-graph",
         "usernamehw.errorlens",
-        "jebbs.plantuml",
-        "qhoekman.language-plantuml",
+        "george-alisson.html-preview-vscode",
+        "esbenp.prettier-vscode",
+        "donjayamanne.githistory",
+        "GitHub.github-vscode-theme",
+        "GitHub.vscode-github-actions",
+        "intellsmi.comment-translate",
+        "aaron-bond.better-comments",
+        "Postman.postman-for-vscode",
+        "vscjava.vscode-java-pack",
         "vmware.vscode-boot-dev-pack",
-        "loiane.java-spring-extension-pack",
-        "oracle.oracle-java",
-        "symflower.symflower",
-        "guilhermestella.guilhermestella-java-ext",
-        "george-alisson.html-preview-vscode"
+        "GitHub.vscode-pull-request-github",
+        "ms-edgedevtools.vscode-edge-devtools",
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-mysql",
+        "mtxr.sqltools-driver-pg"
       ],
       "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "locale": "pt-BR",
+        "files.autoSave": "onFocusChange",
         "terminal.integrated.defaultProfile.linux": "zsh",
         "terminal.integrated.shell.linux": "/bin/zsh",
         "terminal.integrated.profiles.linux": {
@@ -46,12 +54,20 @@
             "path": "/bin/zsh"
           }
         },
+        "gradle.enableTaskAutoDetection": true,
+        "gradle.nestedProjects": true,
         "java.jdt.ls.java.home": "/opt/java/openjdk",
-        "java.maven.downloadSources": true,
-        "maven.terminal.useJavaHome": true,
+        "java.import.gradle.enabled": true,
+        "gradle.autoDetect": "on",
+        "java.import.gradle.home": "/opt/gradle",
+        "java.import.gradle.version": "8.8",
+        "java.import.gradle.java.home": "/opt/java/openjdk",
+        "spring-boot.ls.java.home": "/opt/java/openjdk",
+        "plantuml.java": "/opt/java/openjdk/bin/java",
+        "jdk.jdkhome": "/opt/java/openjdk",
         "java.configuration.runtimes": [
           {
-            "name": "JavaSE-21",
+            "name": "JavaSE-17",
             "path": "/opt/java/openjdk",
             "default": true
           }
